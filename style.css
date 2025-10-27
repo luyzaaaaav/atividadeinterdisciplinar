@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lexend';
+}
+
+header {
+  background-color: #111;
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  justify-content: space-around;
+  color: #fff;
+  align-items: center;
+  position: sticky;
+  margin-bottom: 50px;
+}
+
+.links a {
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+}
+
+a {
+  padding: 20px;
+}
+
+header a:hover {
+  color: #f1f1f1;
+  transition: color 0.3s ease-in;
+}
+
+.containers h1 {
+  font-size: 35px;
+}
+
+.containers p {
+  font-size: 20px;
+}
+
+.container1, .container2 {
+  width: 700px;
+  height: fit-content;
+  padding: 30px;
+  background-color: #d0d0d0;
+  display: grid;
+  gap: 30px;
+  max-width: fit-content;
+  text-align: left;
+}
+
+.git, .github, .dif, .repos1, .repos2, .repos3, .repos4 {
+  display: grid;
+  gap: 15px;
+  line-height: 36px;
+}
+
+.containers12 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+pre {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: auto;
+}
+
+code {
+  font-family: monospace;
+}
