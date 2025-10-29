@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Economia Doméstica e Finanças Pessoais — Atividade Interdisciplinar</title>
+  <meta name="description"
+    content="Site educativo sobre economia doméstica, orçamento mensal, consumo consciente e glossário de termos financeiros.">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Economia Doméstica & Finanças Pessoais</h1>
+      <nav>
+        <a href="#sim">Simulador</a>
+        <a href="#tips">Dicas</a>
+        <a href="#info">Infográficos</a>
+        <a href="#glossario">Glossário</a>
+      </nav>
+    </header>
+
+    <section class="hero card" aria-label="Apresentação">
+      <div style="flex:1">
+        <h2>Objetivo</h2>
+        <p class="small">Este site integra Matemática, Geografia, Sociologia e Português para estimular pensamento
+          crítico, organização financeira e consumo consciente. Use o simulador para planejar um orçamento mensal e
+          explore os infográficos e o glossário para consolidar conceitos.</p>
+      </div>
+    </section>
+
+    <main class="grid">
+      <section id="sim" class="card">
+        <h2>Simulador de Orçamento Mensal</h2>
+        <p class="small">Preencha sua receita e despesas e obtenha um resumo automático. Você pode adicionar linhas de
+          despesa quantas quiser.</p>
+
+        <form id="budgetForm">
+          <label for="income">Receita Mensal (R$)</label>
+          <input id="income" type="number" min="0" step="0.01" value="2500">
+
+          <div style="display:flex;gap:8px;margin-top:10px;align-items:center">
+            <label style="flex:1">Categoria de Despesa</label>
+            <label style="width:110px;text-align:right">Valor (R$)</label>
+          </div>
+
+          <div id="expenses" class="expenses-list"></div>
+
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <input id="newCat" type="text" placeholder="Ex.: Alimentação">
+            <input id="newVal" type="number" placeholder="Valor">
+            <button id="addExpense" class="btn" type="button">Adicionar</button>
+          </div>
+
+          <div style="display:flex;gap:8px;align-items:center;margin-top:12px">
+            <button id="calc" class="btn" type="button">Calcular</button>
+            <button id="reset" class="btn ghost" type="button">Limpar</button>
+            <div style="margin-left:auto;text-align:right">
+              <div class="small">Total despesas: <strong id="totalExp">R$ 0,00</strong></div>
+              <div class="small">Saldo: <strong id="balance">R$ 0,00</strong></div>
+            </div>
+          </div>
+        </form>
+
+        <div style="margin-top:16px">
+          <canvas id="pieChart" width="360" height="240" role="img"
+            aria-label="Gráfico de pizza mostrando distribuição das despesas"></canvas>
+        </div>
+      </section>
+
+      <aside class="card" style="display: flex;flex-direction: column; justify-content: space-around;">
+        <div class="sla">
+          <h3>Resumo Rápido</h3>
+          <p class="small">Exemplo de porcentagem do orçamento (Regra 50/30/20):</p>
+          <ul class="small">
+            <li>Necessidades: 50%</li>
+            <li>Desejos: 30%</li>
+            <li>Poupança/Dívida: 20%</li>
+          </ul>
+        </div>
+        <div class="sla2">
+          <table style="font-size: 12px; margin: 10px; gap: 10px; border-collapse: collapse;
+          padding: 20px;">
+            <h3>Dados sobre Finanças Pessoais</h3>
+            <tr style="border: 1px solid #000;">
+              <th style="border-right: 1px solid #000;">Indicador</th>
+              <th style="border-right: 1px solid #000;">Valor</th>
+              <th>Fonte</th>
+            </tr>
+            <tr>
+              <td style="border-right: 1px solid #000; border-bottom: 1px solid #000;">Rendimento domiciliar per capita no Brasil</td>
+              <td style="border-right: 1px solid #000; border-bottom: 1px solid #000;">R$ 2.069 em 2024</td>
+              <td style="border-bottom: 1px solid #000;">IBGE / PNAD Contínua</td>
+            </tr>
+            <tr>
+              <td style="border-right: 1px solid #000; border-bottom: 1px solid #000;">Rendimento mensal real domiciliar per capita</td>
+              <td style="border-right: 1px solid #000; border-bottom: 1px solid #000;">2.020 em 2024</td>
+              <td style="border-bottom: 1px solid #000;">IBGE / UOL / Estadao</td>
+            </tr>
+            <tr>
+              <td style="border-right: 1px solid #000;">Renda per capita regional</td>
+              <td style="border-right: 1px solid #000;">Valor menor no Nordeste (cerca de R$ 1.319) e maior no Sul (cerca de R$ 2.499)</td>
+              <td>IBGE / UOL</td>
+            </tr>
+          </table>
+        </div>
+
+      </aside>
+
+      <section id="info" class="card full">
+        <h2>Infográficos & Dados Econômicos</h2>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div style="flex:1;min-width:280px" class="card">
+            <h3>Renda Média por Região</h3>
+            <div id="bars" class="bars"></div>
+          </div>
+
+          <div style="flex:1;min-width:280px" class="card">
+            <h3>Gasto Médio Doméstico</h3>
+            <ul class="small">
+              <li>Alimentação: 28%</li>
+              <li>Habitação: 34%</li>
+              <li>Transporte: 10%</li>
+              <li>Saúde/Educação: 12%</li>
+              <li>Lazer/Outros: 16%</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="tips" class="card">
+        <h2>Dicas de Consumo Consciente</h2>
+        <div class="tips">
+          <div class="tip"><strong>1. Planeje</strong>
+            <p class="small">Anote receitas e despesas no início do mês.</p>
+          </div>
+          <div class="tip"><strong>2. Priorize necessidades</strong>
+            <p class="small">Separe o essencial antes de gastos com desejos.</p>
+          </div>
+          <div class="tip"><strong>3. Compare preços</strong>
+            <p class="small">Pesquise antes de comprar.</p>
+          </div>
+          <div class="tip"><strong>4. Reutilize e conserte</strong>
+            <p class="small">Dê preferência a itens que podem ser reparados ou reutilizados antes de descartar.</p>
+          </div>
+          <div class="tip"><strong>5. Reduza embalagens</strong>
+            <p class="small">Escolha produtos com menos embalagem ou embalagens recicláveis/recicladas.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="tips" style="margin-top: 0px;">
+          <div class="tip"><strong>6. Prefira local e sazonal</strong>
+            <p class="small">Produtos regionais e sazonais reduzem impacto ambiental e apoiam a economia local.</p>
+          </div>
+          <div class="tip"><strong>7. Evite impulsos</strong>
+            <p class="small">Espere 48h antes de grandes compras.</p>
+          </div>
+          <div class="tip"><strong>8. Poupe automaticamente</strong>
+            <p class="small">Transfira parte da renda para poupança.</p>
+          </div>
+          <div class="tip"><strong>9. Consuma de forma sustentável</strong>
+            <p class="small">Prefira produtos duráveis.</p>
+          </div>
+          <div class="tip"><strong>10. Doe com responsabilidade</strong>
+            <p class="small">Antes de descartar, doe itens em bom estado para quem precisa — reduz desperdício e ajuda a
+              comunidade.</p>
+          </div>
+      </section>
+
+      <section id="glossario" class="card full">
+        <h2>Glossário</h2>
+        <dl>
+          <dt>Orçamento</dt>
+          <dd>Plano que organiza receitas e despesas.</dd>
+          <dt>Receita</dt>
+          <dd>Todo dinheiro que entra.</dd>
+          <dt>Despesa</dt>
+          <dd>Gasto ou saída de dinheiro.</dd>
+          <dt>Poupança</dt>
+          <dd>Dinheiro guardado para o futuro.</dd>
+          <dt>Investimento</dt>
+          <dd>Aplicação de dinheiro com retorno esperado.</dd>
+          <dt>Juros</dt>
+          <dd>Taxa paga ou recebida pelo uso de dinheiro.</dd>
+          <dt>Inflação</dt>
+          <dd>Alta geral dos preços.</dd>
+          <dt>Saldo</dt>
+          <dd>Diferença entre receitas e despesas.</dd>
+          <dt>Consumo consciente</dt>
+          <dd>Escolher produtos de forma sustentável.</dd>
+          <dt>Orçamento familiar</dt>
+          <dd>Planejamento financeiro da família.</dd>
+        </dl>
+      </section>
+    </main>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>

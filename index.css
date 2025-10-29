@@ -1,0 +1,169 @@
+:root {
+    --accent: #0b74da;
+    --muted: #6b7280;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --radius: 12px;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url('Lexend-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background: var(--bg);
+    color: #111;
+    scroll-behavior: smooth;
+    font-family: 'Lexend' !important;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 24px auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav a {
+    margin-left: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hero {
+    background: linear-gradient(180deg, rgba(11, 116, 218, 0.07), transparent);
+    padding: 18px;
+    border-radius: var(--radius);
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.card {
+    background: var(--card);
+    padding: 16px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+h2 {
+    margin: 0 0 8px 0;
+}
+
+form label {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ef;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(11, 116, 218, 0.12);
+}
+
+.tips {
+    display: grid;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 1000px; /* mesmo max-width do .container */
+    margin: 0 auto;
+}
+
+.tip {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px dashed #e8eefc;
+    background: linear-gradient(180deg, #fff, #fbfdff);
+}
+
+dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin: 0 0 8px 0;
+    color: var(--muted);
+}
+
+@media (max-width: 920px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tips {
+        grid-template-columns: 1fr;
+        grid-column: auto;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    dl {
+        grid-template-columns: 1fr;
+    }
+}
+
+footer {
+    margin-top: 26px;
+    padding: 12px;
+    text-align: center;
+    color: var(--muted);
+}
